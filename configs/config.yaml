@@ -4,8 +4,9 @@ website:
     username: "update_me"
     password: "update_me"
 
-api:
-  url: "update_me"
+weatherstack:
+  url: "https://api.weatherstack.com"
+
   # This is a suboptimal way of storing to store sensitive information
   # in production grade project this key would be stored in AWS KMS or similar key vault
-  key:
+  key: "4ec30942a0ec1edde93619797dec37bb"
