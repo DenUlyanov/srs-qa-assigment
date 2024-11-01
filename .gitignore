@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches and logs
+.pytest_cache/
+*.log
+
+# Virtual Environment
+env/
+venv/
+.venv/
+
+# IDE and Editor Configurations
+.idea/
+*.iml
+.vscode/
+
+# Testing Reports and Results
+reports/
+allure-results/
+*.html
+*.xml
+
+# Locust configuration (optional if not to be shared)
+locust/*.log
+
+# Gatling
+gatling/results/
+build/
+target/
+.gradle/
+*.class
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+
+# Python specific
+*.egg-info/
+.eggs/
+*.egg
+Pipfile
+Pipfile.lock
+
+# Dependency directories and files (e.g., node_modules for Node projects)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# JetBrains IDE-specific
+*.idea/
+out/
+
