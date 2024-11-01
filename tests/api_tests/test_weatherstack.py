@@ -75,3 +75,12 @@ def test_invalid_api_key(base_url):
 
 def get_weather(base_url, params):
     return requests.get(base_url + "/current", params=params)
+
+#    DISCLAIMER: Above scenarios is just a showcase, in production grade project I would add scenarios like:
+#    1. Verify weather is within the norm for the region/city
+#    2. Verify units used correctly
+#    3. Verify language can be used correctly
+#    4. Verify valid access key is required
+#    5. Verify usage limits per API key
+#    6. Use pull of random cities instead of hardcoded one
+#    and many other possible scenarios
