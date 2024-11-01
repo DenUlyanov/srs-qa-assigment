@@ -1,12 +1,12 @@
 website:
-  url: "update_me"
+  url: "https://www.westmarine.com/"
   credentials:
-    username: "update_me"
-    password: "update_me"
+    username: "adambalamut@gmail.com"
+    password: "Test@1036"
 
 weatherstack:
   url: "https://api.weatherstack.com"
-
-  # This is a suboptimal way of storing to store sensitive information
-  # in production grade project this key would be stored in AWS KMS or similar key vault
   key: "4ec30942a0ec1edde93619797dec37bb"
+
+  # PLEASE NOTE: his is a suboptimal way of storing sensitive information
+  # in production grade project accounts, passwords and keys  would be stored in AWS KMS or similar key vault
