@@ -9,5 +9,5 @@ weatherstack:
   url: "https://api.weatherstack.com"
   key: "4ec30942a0ec1edde93619797dec37bb"
 
-#   Please none: This is a suboptimal way of storing to store sensitive information
+#   Please none: This is a suboptimal way of storing sensitive information
 #  in production grade project this key would be stored in AWS KMS or similar key vault

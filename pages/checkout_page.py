@@ -4,7 +4,6 @@ from utils.customer_provider import CustomerGenerator
 
 
 class CheckoutPage(BasePage):
-    # Locators
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -14,7 +13,6 @@ class CheckoutPage(BasePage):
 
     def fill_in_checkout_form(self):
         user = CustomerGenerator.create_test_user()
-        print(user)  # TODO delete me
 
         self.send_keys(CheckoutPageLocators.EMAIL, user["email"])
         self.send_keys(CheckoutPageLocators.FIRST_NAME, user["first_name"])
@@ -25,6 +23,3 @@ class CheckoutPage(BasePage):
         self.send_keys(CheckoutPageLocators.POSTCODE, user["postcode"])
         self.send_keys(CheckoutPageLocators.PLACE, user["place"])
         self.send_keys(CheckoutPageLocators.NOTES, user["message"])
-
-        self.wait()  # TODO delete me
-        self.wait()  # TODO delete me

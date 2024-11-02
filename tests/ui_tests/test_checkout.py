@@ -18,7 +18,7 @@ class TestCheckout(BaseTest):
         cart_page = CartPage(self.driver)
         checkout_page = CheckoutPage(self.driver)
 
-        # find product to checkout
+        # find product to check out
         self.search_for_product(product)
         search_result_page.add_product_to_cart()
 

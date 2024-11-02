@@ -27,4 +27,3 @@ class SearchResultPage(BasePage):
 
     def add_product_to_cart(self):
         self.click(SearchResultPageLocators.ADD_TO_CART_BUTTON)
-        self.wait()

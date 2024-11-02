@@ -1,5 +1,3 @@
-import time
-
 from selenium.common import ElementNotInteractableException
 from selenium.common import TimeoutException, NoSuchElementException, ElementClickInterceptedException
 from selenium.webdriver.support import expected_conditions as ec
@@ -119,10 +117,3 @@ class BasePage:
             # TODO add proper logs
             print(f"Element with locator {locator} was not visible within the timeout period.")
             return False
-
-    def wait(self, seconds=5):
-        """
-        Waits for a specified number of seconds.
-        :param seconds: Number of seconds to wait (default is 5 seconds).
-        """
-        time.sleep(seconds)  # Consider using explicit waits instead of fixed sleeps where possible.
