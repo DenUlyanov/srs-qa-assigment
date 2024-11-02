@@ -25,4 +25,8 @@ class SearchResultPage(BasePage):
     def no_products_founds(self):
        return self.is_visible(SearchResultPageLocators.EMPTY_PRODUCT_LIST)
 
+    def add_product_to_cart(self):
+        self.click(SearchResultPageLocators.ADD_TO_CART_BUTTON)
+        self.wait()
+
 

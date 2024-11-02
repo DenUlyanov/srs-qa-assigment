@@ -7,6 +7,11 @@ from utils.config_reader import ConfigReader
 @pytest.mark.usefixtures("init_driver")
 class BaseTest:
 
+    """
+    This class is used to give access to fixtures to all child classes and
+    store all methods that make sense share between steps
+    """
+
     @pytest.fixture(autouse=True)
     def setup_config_reader(self):
         self.config_reader = ConfigReader()

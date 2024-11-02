@@ -19,3 +19,10 @@ class SearchResultPageLocators:
     SEARCH_RESULT_COUNTER = (By.CSS_SELECTOR, ".CategoryPage-ItemsCount")
     PRODUCTS_LIST = (By.CSS_SELECTOR, ".ProductListPage")
     EMPTY_PRODUCT_LIST = (By.CSS_SELECTOR, ".ProductList-ProductsMissing")
+    ADD_TO_CART_BUTTON =(By.CSS_SELECTOR, ".AddToCart")
+
+
+class CartPageLocators:
+    CART_CONTENT = (By.CSS_SELECTOR, ".CartPage-Items")
+    CART_ROWS = (By.CSS_SELECTOR, ".CartItem_isEditing")
+    PROCEED_TO_CHECKOUT= (By.CSS_SELECTOR, ".CartItem_isEditing")

@@ -10,7 +10,7 @@ class LoginPage(BasePage):
         super().__init__(driver)
 
     def open_login_page(self):
-        self.driver.get(self.get_base_url() + "/login")
+        self.driver.get(f"{self.get_base_url()}/login")
 
 
     def is_login_page_visible(self):
