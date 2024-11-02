@@ -15,12 +15,12 @@ def config():
 
 @pytest.fixture
 def base_url(config):
-    return config['weatherstack']['url']
+    return config['api']['url']
 
 
 @pytest.fixture
 def valid_api_key(config):
-    return config['weatherstack']['key']
+    return config['api']['key']
 
 
 # Test Case 1: Valid API Response Test
