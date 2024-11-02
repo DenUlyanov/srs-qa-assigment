@@ -27,7 +27,7 @@ class ConfigReader:
     def get_website_password(self):
         return self.config_data.get('website', {}).get('credentials', {}).get('password')
 
-    def get_Website_timeout(self):
+    def get_website_timeout(self):
         return self.config_data.get('website', {}).get('timeout')
 
     def get_weatherstack_url(self):

@@ -1,6 +1,4 @@
-from selenium.webdriver import Keys
-
-from locators.locators import HomePageLocators, CartPageLocators
+from locators.locators import CartPageLocators
 from pages.base_page import BasePage
 
 

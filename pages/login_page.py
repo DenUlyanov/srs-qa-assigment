@@ -1,5 +1,3 @@
-import time
-
 from locators.locators import LoginPageLocators
 from pages.base_page import BasePage
 
@@ -11,7 +9,6 @@ class LoginPage(BasePage):
 
     def open_login_page(self):
         self.driver.get(f"{self.get_base_url()}/login")
-
 
     def is_login_page_visible(self):
         return self.is_visible(LoginPageLocators.EMAIL)

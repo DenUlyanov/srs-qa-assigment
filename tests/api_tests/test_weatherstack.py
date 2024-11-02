@@ -25,9 +25,9 @@ def valid_api_key(config):
 
 # Test Case 1: Valid API Response Test
 @pytest.mark.parametrize("location", [
-    ("Amsterdam"),
-    ("New York"),
-    ("London")
+    "Amsterdam",
+    "New York",
+    "London"
 ])
 def test_valid_response(location, valid_api_key, base_url):
     params = {
