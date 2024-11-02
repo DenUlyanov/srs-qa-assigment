@@ -12,6 +12,9 @@ class BasePage:
         self.driver = driver
         self.config_reader = ConfigReader()
 
+    def getBaseUrl(self):
+       return self.config_reader.get_website_url()
+
 
     def allow_all_cookies(self):
         # TODO add try mechanism to see if cookies are not accepted
@@ -32,3 +35,7 @@ class BasePage:
     def is_visible(self, locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
         return bool(element)
+
+    #TODO Delete me
+    def wait(self):
+        time.sleep(5)

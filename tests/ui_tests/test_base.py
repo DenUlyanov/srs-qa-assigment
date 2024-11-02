@@ -1,6 +1,11 @@
 import pytest
 
+from utils.config_reader import ConfigReader
+
 
 @pytest.mark.usefixtures("init_driver")
 class BaseTest:
-    pass
+
+    @pytest.fixture(autouse=True)
+    def setup_config_reader(self):
+        self.config_reader = ConfigReader()
