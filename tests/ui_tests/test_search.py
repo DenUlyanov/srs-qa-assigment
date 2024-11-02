@@ -28,10 +28,3 @@ class TestSearch(BaseTest):
         assert self.searchResultPage.is_search_result_page_visible()
         assert self.searchResultPage.are_search_results_for(search_request)
         assert self.searchResultPage.no_products_founds()
-
-    def search_for_product(self, search_request):
-        self.homePage = HomePage(self.driver)
-        self.homePage.open_home_page()
-        self.homePage.allow_all_cookies()
-        assert self.homePage.is_home_page_visible()
-        self.homePage.search(search_request)
