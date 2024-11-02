@@ -5,9 +5,15 @@ website:
     password: "Test@12345"
   timeout: 10
 
-weatherstack:
+api:
   url: "https://api.weatherstack.com"
   key: "4ec30942a0ec1edde93619797dec37bb"
+
+performance:
+  url: "https://www.google.com"
+  users: "1"
+  rate: "1"
+  duration: "3s"
 
 #   Please none: This is a suboptimal way of storing sensitive information
 #  in production grade project this key would be stored in AWS KMS or similar key vault

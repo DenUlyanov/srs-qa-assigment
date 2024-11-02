@@ -31,7 +31,19 @@ class ConfigReader:
         return self.config_data.get('website', {}).get('timeout')
 
     def get_weatherstack_url(self):
-        return self.config_data.get('weatherstack', {}).get('url')
+        return self.config_data.get('api', {}).get('url')
 
     def get_weatherstack_key(self):
-        return self.config_data.get('weatherstack', {}).get('key')
+        return self.config_data.get('api', {}).get('key')
+
+    def get_performance_url(self):
+        return self.config_data.get('performance', {}).get('url')
+
+    def get_performance_users(self):
+        return self.config_data.get('performance', {}).get('users')
+
+    def get_performance_rate(self):
+        return self.config_data.get('performance', {}).get('rate')
+
+    def get_performance_duration(self):
+        return self.config_data.get('performance', {}).get('duration')
