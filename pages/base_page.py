@@ -1,7 +1,7 @@
 import time
 
-from selenium.common import TimeoutException, NoSuchElementException, ElementClickInterceptedException, \
-    ElementNotInteractableException
+from selenium.common import ElementNotInteractableException
+from selenium.common import TimeoutException, NoSuchElementException, ElementClickInterceptedException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -71,7 +71,8 @@ class BasePage:
             print(f"Element with locator {locator} was not found or not visible within the timeout period.")
         except ElementClickInterceptedException:
             # TODO add proper logs
-            print(f"Element with locator {locator} was visible but could not be clicked, possibly due to overlay issues.")
+            print(
+                f"Element with locator {locator} was visible but could not be clicked, possibly due to overlay issues.")
 
     def send_keys(self, locator, text):
         """
@@ -87,7 +88,8 @@ class BasePage:
             print(f"Element with locator {locator} was not found or not visible within the timeout period.")
         except ElementNotInteractableException:
             # TODO add proper logs
-            print(f"Element with locator {locator} was found but is not interactable, possibly due to being disabled or not ready.")
+            print(
+                f"Element with locator {locator} was found but is not interactable, possibly due to being disabled or not ready.")
 
     def get_text(self, locator):
         """

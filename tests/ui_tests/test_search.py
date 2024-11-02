@@ -15,16 +15,24 @@ class TestSearch(BaseTest):
         ]
     )
     def test_search(self, search_request, expected_amount):
+        """
+        Tests that searching for a product returns the expected number of results.
+        :param search_request: The product to search for.
+        :param expected_amount: The expected number of products found.
+        """
         self.search_for_product(search_request)
-        self.searchResultPage = SearchResultPage(self.driver)
-        assert self.searchResultPage.is_search_result_page_visible()
-        assert self.searchResultPage.are_search_results_for(search_request)
-        assert self.searchResultPage.amount_of_products_found(expected_amount)
+        search_result_page = SearchResultPage(self.driver)
+        assert search_result_page.is_search_result_page_visible(), "Search result page is not visible."
+        assert search_result_page.are_search_results_for(search_request), f"Search results are not for '{search_request}'."
+        assert search_result_page.amount_of_products_found(expected_amount), f"Expected {expected_amount} products, but found different number."
 
     def test_search_negative_result(self):
+        """
+        Tests that searching for a non-existent product returns no results.
+        """
         search_request = "Volkswagen Golf"
         self.search_for_product(search_request)
-        self.searchResultPage = SearchResultPage(self.driver)
-        assert self.searchResultPage.is_search_result_page_visible()
-        assert self.searchResultPage.are_search_results_for(search_request)
-        assert self.searchResultPage.no_products_founds()
+        search_result_page = SearchResultPage(self.driver)
+        assert search_result_page.is_search_result_page_visible(), "Search result page is not visible."
+        assert search_result_page.are_search_results_for(search_request), f"Search results are not for '{search_request}'."
+        assert search_result_page.no_products_founds(), "Expected no products to be found, but some were found."
