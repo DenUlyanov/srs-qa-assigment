@@ -21,3 +21,6 @@ class CartPage(BasePage):
     def is_product_in_cart(self, product_name):
         cart_content = self.find_element(CartPageLocators.CART_CONTENT).text
         return product_name in cart_content, f"Expected product '{product_name}' not found in the cart."
+
+    def proceed_to_checkout(self):
+        self.click(CartPageLocators.PROCEED_TO_CHECKOUT)

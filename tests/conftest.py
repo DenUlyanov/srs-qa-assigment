@@ -10,6 +10,7 @@ def init_driver(request):
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--start-maximized")
 
     web_driver = webdriver.Chrome(options=chrome_options)
     request.cls.driver = web_driver
