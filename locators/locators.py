@@ -11,3 +11,11 @@ class LoginPageLocators:
 class HomePageLocators:
     ALLOW_COOKIES_BUTTON = (By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")
     HOME_PAGE_INFO = (By.CSS_SELECTOR, ".HomePageInfo")
+    SEARCH_BAR = (By.ID, "search-field")
+
+
+class SearchResultPageLocators:
+    SEARCH_REQUEST_DISPLAY = (By.CSS_SELECTOR, ".CategoryDetails-Description")
+    SEARCH_RESULT_COUNTER = (By.CSS_SELECTOR, ".CategoryPage-ItemsCount")
+    PRODUCTS_LIST = (By.CSS_SELECTOR, ".ProductListPage")
+    EMPTY_PRODUCT_LIST = (By.CSS_SELECTOR, ".ProductList-ProductsMissing")
