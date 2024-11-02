@@ -32,7 +32,6 @@ class TestCheckout(BaseTest):
         assert checkout_page.is_checkout_page_visible()
         checkout_page.fill_in_checkout_form()
 
-
         """ 
         I have decided to stop here since if I proceed to checkout order will be created in the shop backend 
         and I really don't want to mess up their statistics. I also added note in checkout form just in case. 
@@ -40,4 +39,3 @@ class TestCheckout(BaseTest):
         Many more test for checkout page can be added that cover flow of existing customer, verify field validation, 
         test delivery options and so on.
         """
-

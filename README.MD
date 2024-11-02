@@ -14,13 +14,13 @@
 
 ## How to run the tests
 
-### UI and API 
+### UI and API
 
 ### Performance
 
 ## How to view report
 
-### UI and API 
+### UI and API
 
 ### Performance
 
@@ -30,9 +30,10 @@
 
 ## Adding new tests
 
-
 [GitHub]: ''
 
 [SATLinkUi]: ''
-[SATLinkApi]:  '' 
+
+[SATLinkApi]:  ''
+
 [SATLinkLoad]:  ''

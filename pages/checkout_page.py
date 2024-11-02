@@ -1,4 +1,4 @@
-from locators.locators import CartPageLocators, CheckoutPageLocators
+from locators.locators import CheckoutPageLocators
 from pages.base_page import BasePage
 from utils.customer_provider import CustomerGenerator
 
@@ -9,14 +9,12 @@ class CheckoutPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-
     def is_checkout_page_visible(self):
         return self.is_visible(CheckoutPageLocators.PROCEED_TO_BILLING)
 
     def fill_in_checkout_form(self):
-
         user = CustomerGenerator.create_test_user()
-        print(user)  #TODO delete me
+        print(user)  # TODO delete me
 
         self.send_keys(CheckoutPageLocators.EMAIL, user["email"])
         self.send_keys(CheckoutPageLocators.FIRST_NAME, user["first_name"])
@@ -28,15 +26,5 @@ class CheckoutPage(BasePage):
         self.send_keys(CheckoutPageLocators.PLACE, user["place"])
         self.send_keys(CheckoutPageLocators.NOTES, user["message"])
 
-
-        self.wait() #TODO delete me
-        self.wait() #TODO delete me
-
-
-
-
-
-
-
-
-
+        self.wait()  # TODO delete me
+        self.wait()  # TODO delete me
