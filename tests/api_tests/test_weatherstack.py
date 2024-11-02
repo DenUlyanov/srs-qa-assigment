@@ -5,10 +5,10 @@ import requests
 import yaml
 
 
-# Fixture to load configuration from config.yaml
+# Fixture to load configuration from config.yaml. This is showcase of alternative of using Config Reader utils
 @pytest.fixture(scope="session")
 def config():
-    config_path = os.path.join(os.path.dirname(__file__), '../../configs/config.yaml')
+    config_path = os.path.join(os.path.dirname(__file__), '../../config/config.yaml')
     with open(config_path, 'r') as file:
         return yaml.safe_load(file)
 
@@ -25,9 +25,9 @@ def valid_api_key(config):
 
 # Test Case 1: Valid API Response Test
 @pytest.mark.parametrize("location", [
-    ("Amsterdam"),
-    ("New York"),
-    ("London")
+    "Amsterdam",
+    "New York",
+    "London"
 ])
 def test_valid_response(location, valid_api_key, base_url):
     params = {
