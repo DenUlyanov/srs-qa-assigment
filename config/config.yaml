@@ -3,6 +3,7 @@ website:
   credentials:
     username: "adambalamut@gmail.com"
     password: "Test@12345"
+  timeout: 10
 
 weatherstack:
   url: "https://api.weatherstack.com"

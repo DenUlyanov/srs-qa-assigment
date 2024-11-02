@@ -14,6 +14,7 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
         self.config_reader = ConfigReader()
+        self.timeout = self.config_reader.get_Website_timeout()
 
     def get_base_url(self):
         return self.config_reader.get_website_url()
@@ -23,7 +24,7 @@ class BasePage:
         Attempts to click the "Allow Cookies" button if it is present and visible.
         """
         try:
-            allow_button = WebDriverWait(self.driver, 10).until(
+            allow_button = WebDriverWait(self.driver, self.timeout).until(
                 EC.visibility_of_element_located(HomePageLocators.ALLOW_COOKIES_BUTTON)
             )
             if allow_button.is_displayed():
@@ -39,7 +40,7 @@ class BasePage:
         :return: The located WebElement, or None if not found.
         """
         try:
-            return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+            return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
         except TimeoutException:
             # TODO add proper logs
             print(f"Element with locator {locator} was not found or not visible within the timeout period.")
@@ -52,7 +53,7 @@ class BasePage:
         :return: A list of located WebElements, or an empty list if none are found.
         """
         try:
-            return WebDriverWait(self.driver, 10).until(EC.visibility_of_all_elements_located(locator))
+            return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_all_elements_located(locator))
         except TimeoutException:
             # TODO add proper logs
             print(f"Elements with locator {locator} were not found or not visible within the timeout period.")
@@ -64,7 +65,7 @@ class BasePage:
         :param locator: Locator for the element to click.
         """
         try:
-            element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+            element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
             element.click()
         except TimeoutException:
             # TODO add proper logs
@@ -81,7 +82,7 @@ class BasePage:
         :param text: The text to send to the element.
         """
         try:
-            element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+            element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
             element.send_keys(text)
         except TimeoutException:
             # TODO add proper logs
@@ -98,7 +99,7 @@ class BasePage:
         :return: The text of the element, or None if not found.
         """
         try:
-            element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+            element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
             return element.text
         except TimeoutException:
             # TODO add proper logs
@@ -112,7 +113,7 @@ class BasePage:
         :return: True if the element is visible, False otherwise.
         """
         try:
-            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+            WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(locator))
             return True
         except TimeoutException:
             # TODO add proper logs

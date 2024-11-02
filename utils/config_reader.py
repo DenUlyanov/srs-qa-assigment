@@ -1,6 +1,7 @@
-
 import os
+
 import yaml
+
 
 class ConfigReader:
     def __init__(self):
@@ -17,7 +18,6 @@ class ConfigReader:
         except yaml.YAMLError as e:
             raise Exception(f"Error reading YAML file: {e}")
 
-
     def get_website_url(self):
         return self.config_data.get('website', {}).get('url')
 
@@ -26,6 +26,9 @@ class ConfigReader:
 
     def get_website_password(self):
         return self.config_data.get('website', {}).get('credentials', {}).get('password')
+
+    def get_Website_timeout(self):
+        return self.config_data.get('website', {}).get('timeout')
 
     def get_weatherstack_url(self):
         return self.config_data.get('weatherstack', {}).get('url')
