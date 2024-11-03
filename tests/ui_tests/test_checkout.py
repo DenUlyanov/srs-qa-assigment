@@ -6,8 +6,8 @@ from tests.ui_tests.test_base import BaseTest
 
 class TestCheckout(BaseTest):
     """
-       This test verifies that product can be found via search, add to cart and checked out
-       Test is not going to pay for the product
+    This test verifies that product can be found via search, add to cart and checked out
+    Test is not going to pay for the product
     """
 
     def test_checkout_product(self):
@@ -36,6 +36,6 @@ class TestCheckout(BaseTest):
         I have decided to stop here since if I proceed to checkout order will be created in the shop backend 
         and I really don't want to mess up their statistics. I also added note in checkout form just in case. 
         
-        Many more test for checkout page can be added that cover flow of existing customer, verify field validation, 
+        Many more test for checkout page can be added that cover flow of existing data, verify field validation, 
         test delivery options and so on.
         """

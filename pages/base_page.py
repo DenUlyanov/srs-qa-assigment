@@ -1,11 +1,15 @@
 import logging
 from selenium.common import ElementNotInteractableException
-from selenium.common import TimeoutException, NoSuchElementException, ElementClickInterceptedException
+from selenium.common import (
+    TimeoutException,
+    NoSuchElementException,
+    ElementClickInterceptedException,
+)
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
+from config.config import ConfigReader
 from locators.locators import HomePageLocators
-from utils.config_reader import ConfigReader
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -13,6 +17,9 @@ logger = logging.getLogger(__name__)
 
 
 class BasePage:
+    """
+    This is class that contains basic functions to interact with UI
+    """
 
     def __init__(self, driver):
         self.driver = driver
@@ -42,10 +49,14 @@ class BasePage:
         :return: The located WebElement, or None if not found.
         """
         try:
-            return WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
-        except TimeoutException:
-            logger.error(f"Element with locator {locator} was not found or not visible within the timeout period.")
-            return None
+            return WebDriverWait(self.driver, self.timeout).until(
+                ec.visibility_of_element_located(locator)
+            )
+        except TimeoutException as e:
+            logger.error(
+                f"Element with locator {locator} was not found or not visible within the timeout period."
+            )
+            raise e
 
     def find_elements(self, locator):
         """
@@ -54,10 +65,14 @@ class BasePage:
         :return: A list of located WebElements, or an empty list if none are found.
         """
         try:
-            return WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_all_elements_located(locator))
-        except TimeoutException:
-            logger.error(f"Elements with locator {locator} were not found or not visible")
-            return []
+            return WebDriverWait(self.driver, self.timeout).until(
+                ec.visibility_of_all_elements_located(locator)
+            )
+        except TimeoutException as e:
+            logger.error(
+                f"Elements with locator {locator} were not found or not visible"
+            )
+            raise e
 
     def click(self, locator):
         """
@@ -65,13 +80,17 @@ class BasePage:
         :param locator: Locator for the element to click.
         """
         try:
-            element = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
+            element = WebDriverWait(self.driver, self.timeout).until(
+                ec.visibility_of_element_located(locator)
+            )
             element.click()
         except TimeoutException:
             logger.error(f"Element with locator {locator} was not found or not visible")
-        except ElementClickInterceptedException:
+        except ElementClickInterceptedException as e:
             logger.error(
-                f"Element with locator {locator} was visible but could not be clicked")
+                f"Element with locator {locator} was visible but could not be clicked"
+            )
+            raise e
 
     def send_keys(self, locator, text):
         """
@@ -80,13 +99,17 @@ class BasePage:
         :param text: The text to send to the element.
         """
         try:
-            element = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
+            element = WebDriverWait(self.driver, self.timeout).until(
+                ec.visibility_of_element_located(locator)
+            )
             element.send_keys(text)
         except TimeoutException:
             logger.error(f"Element with locator {locator} was not found or not visible")
-        except ElementNotInteractableException:
+        except ElementNotInteractableException as e:
             logger.error(
-                f"Element with locator {locator} was found but is not interactable")
+                f"Element with locator {locator} was found but is not interactable"
+            )
+            raise e
 
     def get_text(self, locator):
         """
@@ -95,11 +118,15 @@ class BasePage:
         :return: The text of the element, or None if not found.
         """
         try:
-            element = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
+            element = WebDriverWait(self.driver, self.timeout).until(
+                ec.visibility_of_element_located(locator)
+            )
             return element.text
-        except TimeoutException:
-            logger.error(f"Element with locator {locator} was not found or not visible within the timeout period.")
-            return None
+        except TimeoutException as e:
+            logger.error(
+                f"Element with locator {locator} was not found or not visible within the timeout period."
+            )
+            raise e
 
     def is_visible(self, locator):
         """
@@ -108,8 +135,12 @@ class BasePage:
         :return: True if the element is visible, False otherwise.
         """
         try:
-            WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
+            WebDriverWait(self.driver, self.timeout).until(
+                ec.visibility_of_element_located(locator)
+            )
             return True
-        except TimeoutException:
-            logger.error(f"Element with locator {locator} was not visible within the timeout period.")
-            return False
+        except TimeoutException as e:
+            logger.error(
+                f"Element with locator {locator} was not visible within the timeout period."
+            )
+            raise e

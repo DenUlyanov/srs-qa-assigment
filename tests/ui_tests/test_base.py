@@ -1,7 +1,7 @@
 import pytest
 
+from config.config import ConfigReader
 from pages.home_page import HomePage
-from utils.config_reader import ConfigReader
 
 
 @pytest.mark.usefixtures("init_driver")
@@ -24,8 +24,8 @@ class BaseTest:
     """
 
     def search_for_product(self, search_request):
-        self.homePage = HomePage(self.driver)
-        self.homePage.open_home_page()
-        self.homePage.allow_all_cookies()
-        assert self.homePage.is_home_page_visible()
-        self.homePage.search(search_request)
+        home_page = HomePage(self.driver)
+        home_page.open_home_page()
+        home_page.allow_all_cookies()
+        assert home_page.is_home_page_visible()
+        home_page.search(search_request)

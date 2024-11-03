@@ -13,11 +13,16 @@ class SearchResultPage(BasePage):
         return self.is_visible(SearchResultPageLocators.SEARCH_REQUEST_DISPLAY)
 
     def are_search_results_for(self, search_request):
-        return search_request.lower() in self.get_text(SearchResultPageLocators.SEARCH_REQUEST_DISPLAY).lower()
+        return (
+            search_request.lower()
+            in self.get_text(SearchResultPageLocators.SEARCH_REQUEST_DISPLAY).lower()
+        )
 
     def amount_of_products_found(self, expected_count):
-        product_count_string = self.get_text(SearchResultPageLocators.SEARCH_RESULT_COUNTER).lower()
-        match = re.search(r'\d+', product_count_string)
+        product_count_string = self.get_text(
+            SearchResultPageLocators.SEARCH_RESULT_COUNTER
+        ).lower()
+        match = re.search(r"\d+", product_count_string)
         if not match:
             raise ValueError("No item count found in the provided text")
         return int(match.group()) == expected_count

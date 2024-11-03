@@ -1,5 +1,6 @@
 from locust import HttpUser, task
 
+
 class LoadTest(HttpUser):
 
     @task
@@ -9,4 +10,3 @@ class LoadTest(HttpUser):
                 response.success()
             else:
                 response.failure(f"Failed with status code {response.status_code}")
-

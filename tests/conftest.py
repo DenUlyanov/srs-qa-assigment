@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-@pytest.fixture(scope='class')
+@pytest.fixture(scope="class")
 def init_driver(request):
     chrome_options = Options()
     chrome_options.add_argument("--incognito")
