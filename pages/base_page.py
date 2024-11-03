@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
 from locators.locators import HomePageLocators
-from utils.config_reader import ConfigReader
+from utils.config import ConfigReader
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -32,7 +32,7 @@ class BasePage:
             )
             if allow_button.is_displayed():
                 allow_button.click()
-        except (TimeoutException, NoSuchElementException):
+        except (TimeoutException, NoSuchElementException) as e:
             logger.info("Allow cookies button not found or not visible.")
 
     def find_element(self, locator):
@@ -43,9 +43,9 @@ class BasePage:
         """
         try:
             return WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
-        except TimeoutException:
+        except TimeoutException as e:
             logger.error(f"Element with locator {locator} was not found or not visible within the timeout period.")
-            return None
+            raise e
 
     def find_elements(self, locator):
         """
@@ -55,9 +55,9 @@ class BasePage:
         """
         try:
             return WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_all_elements_located(locator))
-        except TimeoutException:
+        except TimeoutException as e:
             logger.error(f"Elements with locator {locator} were not found or not visible")
-            return []
+            raise e
 
     def click(self, locator):
         """
@@ -67,11 +67,11 @@ class BasePage:
         try:
             element = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
             element.click()
-        except TimeoutException:
+        except TimeoutException as e:
             logger.error(f"Element with locator {locator} was not found or not visible")
-        except ElementClickInterceptedException:
-            logger.error(
-                f"Element with locator {locator} was visible but could not be clicked")
+        except ElementClickInterceptedException as e:
+            logger.error(f"Element with locator {locator} was visible but could not be clicked")
+            raise e
 
     def send_keys(self, locator, text):
         """
@@ -84,9 +84,9 @@ class BasePage:
             element.send_keys(text)
         except TimeoutException:
             logger.error(f"Element with locator {locator} was not found or not visible")
-        except ElementNotInteractableException:
-            logger.error(
-                f"Element with locator {locator} was found but is not interactable")
+        except ElementNotInteractableException as e:
+            logger.error(f"Element with locator {locator} was found but is not interactable")
+            raise e
 
     def get_text(self, locator):
         """
@@ -97,9 +97,9 @@ class BasePage:
         try:
             element = WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
             return element.text
-        except TimeoutException:
+        except TimeoutException as e:
             logger.error(f"Element with locator {locator} was not found or not visible within the timeout period.")
-            return None
+            raise e
 
     def is_visible(self, locator):
         """
@@ -110,6 +110,6 @@ class BasePage:
         try:
             WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
             return True
-        except TimeoutException:
+        except TimeoutException as e:
             logger.error(f"Element with locator {locator} was not visible within the timeout period.")
-            return False
+            raise e
