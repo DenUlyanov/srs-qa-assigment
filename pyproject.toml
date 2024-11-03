@@ -16,6 +16,10 @@ pytest-html = "4.1.1"
 pytest-xdist = "3.6.1"
 black = "24.10.0"
 ruff = "0.7.2"
+mypy = "1.13.0"
+types-PyYAML = "6.0.12.12"
+types-requests = "2.32.0.20241016"
+pyyaml = "6.0.2"
 
 [build-system]
 requires = ["poetry-core"]

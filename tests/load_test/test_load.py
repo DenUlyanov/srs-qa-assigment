@@ -6,13 +6,13 @@ from config.config import ConfigReader
 
 def test_load():
     """
-    This test verify performance of provided URL using locust load testing framework
+    This test verify performance of provided URL using locust files load testing framework
     You can adjust URL and all other important parameters in performance section of config.yaml
     """
 
     config_reader = ConfigReader()
     locust_file_path = os.path.join(
-        os.path.dirname(__file__), "../../locust/home_page_load.py"
+        os.path.dirname(__file__), "../../locustfiles/locustfile.py"
     )
 
     try:

@@ -61,7 +61,7 @@ def test_invalid_api_key(base_url):
     # Verify error codes
     data = response.json()
 
-    assert data["success"] == False
+    assert not data["success"]
     assert data["error"]["code"] == 101
     assert data["error"]["type"] == "invalid_access_key"
     assert "You have not supplied a valid API Access Key" in data["error"]["info"]

@@ -1,6 +1,6 @@
+from data.customer import CustomerGenerator
 from locators.locators import CheckoutPageLocators
 from pages.base_page import BasePage
-from customer.customer import CustomerGenerator
 
 
 class CheckoutPage(BasePage):

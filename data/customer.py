@@ -32,7 +32,7 @@ class TestUser:
 
 class CustomerGenerator:
     """
-    Utility class to provide random test customer data.
+    Utility class to provide random test data data.
     """
 
     @staticmethod

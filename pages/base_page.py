@@ -8,8 +8,8 @@ from selenium.common import (
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
-from locators.locators import HomePageLocators
 from config.config import ConfigReader
+from locators.locators import HomePageLocators
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -17,6 +17,9 @@ logger = logging.getLogger(__name__)
 
 
 class BasePage:
+    """
+    This is class that contains basic functions to interact with UI
+    """
 
     def __init__(self, driver):
         self.driver = driver
@@ -36,7 +39,7 @@ class BasePage:
             )
             if allow_button.is_displayed():
                 allow_button.click()
-        except (TimeoutException, NoSuchElementException) as e:
+        except (TimeoutException, NoSuchElementException):
             logger.info("Allow cookies button not found or not visible.")
 
     def find_element(self, locator):
@@ -81,7 +84,7 @@ class BasePage:
                 ec.visibility_of_element_located(locator)
             )
             element.click()
-        except TimeoutException as e:
+        except TimeoutException:
             logger.error(f"Element with locator {locator} was not found or not visible")
         except ElementClickInterceptedException as e:
             logger.error(
