@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           make init
-#          make sync
+          make sync
 
       - name: Code check
         run: |
