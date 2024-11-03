@@ -74,7 +74,7 @@ def test_invalid_api_key(base_url):
 
 
 def get_weather(base_url, params):
-    return requests.get(base_url + "/current", params=params)
+    return requests.get(f"{base_url}/current", params=params)
 
 #    DISCLAIMER: Above scenarios is just a showcase, in production grade project I would add scenarios like:
 #    1. Verify weather is within the norm for the region/city
