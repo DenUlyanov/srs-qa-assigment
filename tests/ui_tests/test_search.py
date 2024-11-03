@@ -11,7 +11,7 @@ class TestSearch(BaseTest):
         [
             ("Fletching Jig Phoenix", 1),
             ("Compound bow", 283),
-        ]
+        ],
     )
     def test_search(self, search_request, expected_amount):
         """
@@ -21,11 +21,15 @@ class TestSearch(BaseTest):
         """
         self.search_for_product(search_request)
         search_result_page = SearchResultPage(self.driver)
-        assert search_result_page.is_search_result_page_visible(), "Search result page is not visible."
+        assert (
+            search_result_page.is_search_result_page_visible()
+        ), "Search result page is not visible."
         assert search_result_page.are_search_results_for(
-            search_request), f"Search results are not for '{search_request}'."
+            search_request
+        ), f"Search results are not for '{search_request}'."
         assert search_result_page.amount_of_products_found(
-            expected_amount), f"Expected {expected_amount} products, but found different number."
+            expected_amount
+        ), f"Expected {expected_amount} products, but found different number."
 
     def test_search_negative_result(self):
         """
@@ -34,7 +38,12 @@ class TestSearch(BaseTest):
         search_request = "Volkswagen Golf"
         self.search_for_product(search_request)
         search_result_page = SearchResultPage(self.driver)
-        assert search_result_page.is_search_result_page_visible(), "Search result page is not visible."
+        assert (
+            search_result_page.is_search_result_page_visible()
+        ), "Search result page is not visible."
         assert search_result_page.are_search_results_for(
-            search_request), f"Search results are not for '{search_request}'."
-        assert search_result_page.no_products_founds(), "Expected no products to be found, but some were found."
+            search_request
+        ), f"Search results are not for '{search_request}'."
+        assert (
+            search_result_page.no_products_founds()
+        ), "Expected no products to be found, but some were found."

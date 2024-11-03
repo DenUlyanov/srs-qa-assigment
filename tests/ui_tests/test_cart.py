@@ -5,14 +5,16 @@ from tests.ui_tests.test_base import BaseTest
 
 class TestCart(BaseTest):
     """
-       This test verifies that multiple products can be added to the cart and
-       verifies that cart contains correct amount of correct products
+    This test verifies that multiple products can be added to the cart and
+    verifies that cart contains correct amount of correct products
     """
 
     def test_add_products_to_cart(self):
-        products = ["OMP Archery Versa-Cradle Bow Vise Micro Tune",
-                    "Easton Archery Omni Tool by Fix It Sticks",
-                    "Hoyt Bow Square"]
+        products = [
+            "OMP Archery Versa-Cradle Bow Vise Micro Tune",
+            "Easton Archery Omni Tool by Fix It Sticks",
+            "Hoyt Bow Square",
+        ]
 
         search_result_page = SearchResultPage(self.driver)
         cart_page = CartPage(self.driver)

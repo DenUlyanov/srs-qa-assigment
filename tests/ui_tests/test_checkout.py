@@ -6,8 +6,8 @@ from tests.ui_tests.test_base import BaseTest
 
 class TestCheckout(BaseTest):
     """
-       This test verifies that product can be found via search, add to cart and checked out
-       Test is not going to pay for the product
+    This test verifies that product can be found via search, add to cart and checked out
+    Test is not going to pay for the product
     """
 
     def test_checkout_product(self):

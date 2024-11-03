@@ -8,37 +8,32 @@ import yaml
 # Fixture to load configuration from config.yaml. This is showcase of alternative of using config.py
 @pytest.fixture(scope="session")
 def config():
-    config_path = os.path.join(os.path.dirname(__file__), '../../config/config.yaml')
-    with open(config_path, 'r') as file:
+    config_path = os.path.join(os.path.dirname(__file__), "../../config/config.yaml")
+    with open(config_path, "r") as file:
         return yaml.safe_load(file)
 
 
 @pytest.fixture
 def base_url(config):
-    return config['api']['url']
+    return config["api"]["url"]
 
 
 @pytest.fixture
 def valid_api_key(config):
-    return config['api']['key']
+    return config["api"]["key"]
 
 
 # Test Case 1: Valid API Response Test
-@pytest.mark.parametrize("location", [
-    "Amsterdam",
-    "New York",
-    "London"
-])
+@pytest.mark.parametrize("location", ["Amsterdam", "New York", "London"])
 def test_valid_response(location, valid_api_key, base_url):
-    params = {
-        "access_key": valid_api_key,
-        "query": location
-    }
+    params = {"access_key": valid_api_key, "query": location}
 
     response = get_weather(base_url, params)
 
     # Validate response status
-    assert response.status_code == 200, f"Unexpected status code: {response.status_code}"
+    assert (
+        response.status_code == 200
+    ), f"Unexpected status code: {response.status_code}"
 
     # Verify provided data
     data = response.json()
@@ -54,15 +49,14 @@ def test_valid_response(location, valid_api_key, base_url):
 
 # Test Case 2: Invalid API Key Test
 def test_invalid_api_key(base_url):
-    params = {
-        "access_key": "this_is_invalid_key",
-        "query": "New York"
-    }
+    params = {"access_key": "this_is_invalid_key", "query": "New York"}
 
     response = get_weather(base_url, params)
 
     # Validate that an error is returned
-    assert response.status_code == 200, f"Unexpected status code: {response.status_code}"
+    assert (
+        response.status_code == 200
+    ), f"Unexpected status code: {response.status_code}"
 
     # Verify error codes
     data = response.json()
@@ -75,6 +69,7 @@ def test_invalid_api_key(base_url):
 
 def get_weather(base_url, params):
     return requests.get(f"{base_url}/current", params=params)
+
 
 #    DISCLAIMER: Above scenarios is just a showcase, in production grade project I would add scenarios like:
 #    1. Verify weather is within the norm for the region/city

@@ -5,11 +5,19 @@ from dataclasses import dataclass, field
 
 @dataclass
 class TestUser:
-    first_name: str = field(default_factory=lambda: ''.join(
-        random.choices(string.ascii_uppercase + string.ascii_lowercase, k=6)).capitalize())
-    last_name: str = field(default_factory=lambda: ''.join(
-        random.choices(string.ascii_uppercase + string.ascii_lowercase, k=8)).capitalize())
-    phone: str = field(default_factory=lambda: '+31 6 ' + ''.join(random.choices(string.digits, k=8)))
+    first_name: str = field(
+        default_factory=lambda: "".join(
+            random.choices(string.ascii_uppercase + string.ascii_lowercase, k=6)
+        ).capitalize()
+    )
+    last_name: str = field(
+        default_factory=lambda: "".join(
+            random.choices(string.ascii_uppercase + string.ascii_lowercase, k=8)
+        ).capitalize()
+    )
+    phone: str = field(
+        default_factory=lambda: "+31 6 " + "".join(random.choices(string.digits, k=8))
+    )
     email: str = "fakeemail@test.com"
     street_name: str = "Teststraat"
     house_number: str = "123"

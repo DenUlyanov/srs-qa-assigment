@@ -16,7 +16,7 @@ class TestLogin(BaseTest):
 
         login_page.login(
             self.config_reader.get_website_email(),
-            self.config_reader.get_website_password()
+            self.config_reader.get_website_password(),
         )
 
         assert home_page.is_home_page_visible(), "Home page is not visible after login."
