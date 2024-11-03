@@ -1,7 +1,7 @@
 import pytest
 
 from pages.home_page import HomePage
-from utils.config_reader import ConfigReader
+from config.config import ConfigReader
 
 
 @pytest.mark.usefixtures("init_driver")

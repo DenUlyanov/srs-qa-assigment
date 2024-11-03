@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from utils.config_reader import ConfigReader
+from config.config import ConfigReader
 
 def test_load():
 

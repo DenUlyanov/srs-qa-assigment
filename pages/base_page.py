@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
 from locators.locators import HomePageLocators
-from utils.config import ConfigReader
+from config.config import ConfigReader
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
