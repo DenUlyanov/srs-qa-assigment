@@ -13,7 +13,7 @@ performance:
   url: "https://www.google.com"
   users: "1"
   rate: "1"
-  duration: "3s"
+  duration: "1s"
 
 #   Please none: This is a suboptimal way of storing sensitive information
 #  in production grade project this key would be stored in AWS KMS or similar key vault
