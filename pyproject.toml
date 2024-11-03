@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "srs-ulyanov"
+version = "0.1.0"
+description = "Pytest project for SRS QA Assignment"
+authors = ["Denys Ulyanov <ulyanovdenis@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+requests = "2.32.3"
+selenium = "4.26.1"
+locust = "2.32.1"
+pytest = "8.3.3"
+pytest-html = "4.1.1"
+pytest-xdist = "3.6.1"
+black = "24.10.0"
+ruff = "0.7.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
