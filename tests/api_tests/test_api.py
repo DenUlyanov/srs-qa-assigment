@@ -5,7 +5,7 @@ import requests
 import yaml
 
 
-# Fixture to load configuration from config.yaml. This is showcase of alternative of using Config Reader utils
+# Fixture to load configuration from config.yaml. This is showcase of alternative of using config.py
 @pytest.fixture(scope="session")
 def config():
     config_path = os.path.join(os.path.dirname(__file__), '../../config/config.yaml')
