@@ -130,11 +130,6 @@ ENV/
 env.bak/
 venv.bak/
 
-
-# Ignore compiled dependency files
-requirements.txt
-requirements-dev.txt
-
 # Spyder project settings
 .spyderproject
 .spyproject
