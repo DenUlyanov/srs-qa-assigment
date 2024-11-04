@@ -30,8 +30,6 @@ lint:
 type-check:
 	mypy .
 
-check: format lint type-check
-
 # Run tests with pytest
 test:
 	pytest tests/ -n auto --html=reports/ui_test_report.html --self-contained-html
@@ -39,6 +37,8 @@ test:
 # Clean up generated requirements files
 clean:
 	rm -f requirements.txt
+
+check: format lint type-check
 
 run-test: init compile sync test
 

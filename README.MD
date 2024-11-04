@@ -31,7 +31,7 @@ You can find test scenarios [here](doc/UI_TEST.md) and test themselves [here](te
 ### Load tests
 
 Load test for [Google][SATLinkLoad] home page are built with [Locust][Locust], load can be configured via parameters in
-[config file](config/config.yaml). Please find test description here [here](doc/API_TESTS.md)
+[config file](config/config.yaml). Please find test description here [here](doc/LOAD_TESTS.md)
 
 ## How to run the tests
 
