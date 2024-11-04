@@ -13,15 +13,20 @@ and dependencies can be found in [toml](pyproject.toml) file.
 
 ## Test description
 
-This test framework contains three different types of test: UI, API and Load. 
-You can find description and test cases below for each one of them. 
-
-### UI Test
-Set of test created for popular e-commerce website for buying archery equipment [Europe archery][SATLinkUi]
-Test are build with Page Object patter and verify basic functionality of login, search, and checkout process. 
-You can find test scenarios [here]()
+This test framework contains three different types of test: UI, API and Load tests.
+You can find description and test cases below for each one of them.
 
 ### API Tests
+
+Positive and negative test cases for weather API service [weatherstack](SATLinkApi) were added.
+Test are using [requests library](https://pypi.org/project/requests/) to verify current weather information. 
+You can find test scenarios [here](doc/API_TESTS.md)
+
+### UI Test
+
+Set of test created for popular e-commerce website for buying archery equipment [Europe archery][SATLinkUi]
+Test are build with Page Object patter and verify basic functionality of login, search, and checkout process.
+You can find test scenarios [here](doc/UI_TEST.md)
 
 ### Load tests
 
@@ -39,8 +44,7 @@ You can find test scenarios [here]()
 
 ## Adding new tests
 
-## Test cases 
-
+## Test cases
 
 [Assignment]: doc/SRS_EU_QA_Assignment_-_October_2024.pdf
 
