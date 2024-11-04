@@ -1,4 +1,4 @@
-# API TEST CASES
+# UI TEST CASES
 
 Please note: normally test cases would be stored in separate test management tool
 

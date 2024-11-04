@@ -39,3 +39,6 @@ test:
 # Clean up generated requirements files
 clean:
 	rm -f requirements.txt
+
+run-test: init compile sync test
+
