@@ -1,22 +1,31 @@
-# SHELL RECHARGE QA ASSIGMENT
+# SHELL RECHARGE QA ASSIGNMENT
 
-[Sources][GitHub] | [UI under test][SATLinkUi] | [API under test][SATLinkApi] | [Performance System under test][SATLinkLoad] |
+You can find original assignment [here][Assignment]
+
+[Sources][GitHub] | [UI under test][SATLinkUi] | [API under test][SATLinkApi] | [Load test target][SATLinkLoad] |
 
 ## Tech info
 
+This test framework is writen using [PyTest](https://docs.pytest.org/en/stable/)
+used [Selenium Webdriver](https://www.selenium.dev/documentation/webdriver/) for UI test and
+[Locust](https://docs.locust.io/en/stable/) for load testing. [Makefile](Makefile) is used to create virtual environment
+and dependencies can be found in [toml](pyproject.toml) file.
+
 ## Test description
 
+This test framework contains three different types of test: UI, API and Load. 
+You can find description and test cases below for each one of them. 
+
 ### UI Test
+Set of test created for popular e-commerce website for buying archery equipment [Europe archery][SATLinkUi]
+Test are build with Page Object patter and verify basic functionality of login, search, and checkout process. 
+You can find test scenarios [here]()
 
 ### API Tests
 
-### Performance tests
+### Load tests
 
 ## How to run the tests
-
-### UI and API
-
-### Performance
 
 ## How to view report
 
@@ -30,10 +39,19 @@
 
 ## Adding new tests
 
-[GitHub]: ''
+## Test cases 
 
-[SATLinkUi]: ''
 
-[SATLinkApi]:  ''
+[Assignment]: doc/SRS_EU_QA_Assignment_-_October_2024.pdf
 
-[SATLinkLoad]:  ''
+[GitHub]: https://github.com/DenUlyanov/srs-qa-assigment
+
+[SATLinkUi]: https://www.europearchery.com/
+
+[SATLinkApi]:  https://weatherstack.com/
+
+[SATLinkLoad]:  https://www.google.com/
+
+[Makefile]
+
+[]
