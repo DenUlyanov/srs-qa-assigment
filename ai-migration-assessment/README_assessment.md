@@ -22,3 +22,33 @@ pytest tests/playwright/ --browser chromium
 | `verification/verify_migration.py` | Anti-pattern checker (8 rules, CI-ready) |
 | `verification/verify-migration.md` | Verifier documentation + CI setup |
 | `docs/approach.md` | Context strategy + parallel agent design |
+| `migration-assessment.md` | Claude Code skill — reusable for any migration |
+
+## Reusable Skill: `/migration-assessment`
+
+`migration-assessment.md` is a **Claude Code skill** that generalises this entire assessment pattern to any framework migration — not just Selenium → Playwright.
+
+### How to install
+
+Copy the skill file to your Claude Code skills directory:
+
+```bash
+cp migration-assessment.md ~/.claude/skills/migration-assessment.md
+```
+
+Then restart Claude Code. The skill will be available as:
+
+```
+/migration-assessment
+```
+
+### What it does
+
+When invoked, the skill asks for:
+1. **Source framework** — what you're migrating *from* (e.g. Selenium, Mocha, Redux)
+2. **Target framework** — what you're migrating *to* (e.g. Playwright, Vitest, Zustand)
+3. **Language** — Python, TypeScript, JavaScript, etc.
+4. **Scope** — number of files (sizes the parallelism section)
+5. **Output directory** — where to write the files (default: `./migration-assessment/`)
+
+It then generates the full deliverable set — AI rules config, two conversion prompts with before/after examples, a verification script catching 8+ anti-patterns, an approach doc with parallel subagent design, and a README — tailored to that specific migration.
